@@ -6,7 +6,7 @@ import utils.TestSuit;
 public class TestLogin extends TestSuit {
 
     @Test(description = "登录")
-    public void login(){
+    public void login() {
 
     }
 }

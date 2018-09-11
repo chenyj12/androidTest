@@ -15,11 +15,10 @@ import java.net.URL;
 
 
 public class TestSuit {
-     public AppiumDriver driver;
-     public LoginPage loginPage;
-     public IndexPage indexPage;
-     public WelcomPage welcomPage;
-
+    public AppiumDriver driver;
+    public LoginPage loginPage;
+    public IndexPage indexPage;
+    public WelcomPage welcomPage;
 
 
     @BeforeSuite
@@ -31,8 +30,8 @@ public class TestSuit {
             System.out.println("已存在");
         }
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName","Android");
-        capabilities.setCapability("deviceName","127.0.0.1:62001");
+        capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("deviceName", "127.0.0.1:62001");
         capabilities.setCapability("platformVersion", "5.1");
         capabilities.setCapability("app", app.getAbsolutePath());
         capabilities.setCapability("appPackage", "com.example.homeking.client");
@@ -40,16 +39,18 @@ public class TestSuit {
         capabilities.setCapability("unicodeKeyboard", "True");
         capabilities.setCapability("resetKeyboard", "True");
 
-        driver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
-        loginPage=new LoginPage(driver);
-        indexPage= new IndexPage(driver);
-        welcomPage=new WelcomPage(driver);
+        loginPage = new LoginPage(driver);
+        indexPage = new IndexPage(driver);
+        welcomPage = new WelcomPage(driver);
 
 
     }
+
     @AfterSuite
-    public void tearDown(){
+    public void tearDown() {
+        //sdfsdfsd
         driver.quit();
     }
 }
