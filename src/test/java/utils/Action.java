@@ -1,14 +1,21 @@
 package utils;
 
+
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 
 import java.util.concurrent.TimeUnit;
 
-public class Action {
+public class Action extends TestSuit  {
     public AppiumDriver driver;
+
+    public Action(AndroidDriver androidDriver) {
+        this.driver=androidDriver;
+    }
+
 
     /**
      * 点击方法
@@ -17,6 +24,7 @@ public class Action {
      */
     public void click(By by) {
         try {
+            sleep(1000);
             driver.findElement(by).click();
         } catch (Exception e) {
             sleep(2000);
@@ -77,9 +85,10 @@ public class Action {
      */
 
     public void swipToLeft(int during) {
-        int width = driver.manage().window().getSize().width;
+        int width=driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
-        driver.swipe(width * 9 / 10, height / 2, width / 20, height / 2, during);
+        driver.swipe(width * 9 / 10, height / 2, width / 10, height / 2, during);
+        sleep(2000);
     }
 
     /**
@@ -156,7 +165,7 @@ public class Action {
 
         } catch (Exception e) {
             isDisplayed = false;
-            System.out.println(by+"控件不存在，用例失败");
+            System.out.println(by+"控件不存在");
         }
         return isDisplayed;
 
